@@ -15,10 +15,14 @@ sequelize
     .catch(err=> {
         console.error('Unable to connect to the database:', err)
     });
+
+//using routes and controllers
+const articleRouter = require("./routes/article");
+app.use("/", articleRouter);
 app.get ("/", (req,res) =>{
     res.json({ message: "Welcome to sequelize application."});
 });
 
-app.listen(3000, () =>{
-    console.log("Server is running on http://localhost:3000")
+app.listen(4000, () =>{
+    console.log("Server is running on http://localhost:4000")
 })
